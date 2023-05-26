@@ -1,5 +1,9 @@
 name: only-tests
 
+on:
+  push:
+  workflow_dispatch:
+  
 jobs:
   run-all-tests:
     runs-on: self-hosted
@@ -20,3 +24,13 @@ jobs:
 
       - name: All the Tests and Coverage check
         run: mvn clean install
+
+
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
