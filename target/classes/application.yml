@@ -1,0 +1,8 @@
+
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://containers-us-west-13.railway.app:7064/railway
+    username: postgres
+    password: SOQyXFocMyVukojw2ApG
