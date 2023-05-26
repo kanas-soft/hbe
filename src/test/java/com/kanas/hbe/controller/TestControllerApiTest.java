@@ -8,13 +8,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @WebMvcTest
-public class TestControllerApiTest {
+class TestControllerApiTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void testEndpoint() throws Exception {
+    void testEndpoint() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/test"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Hello World!"));
