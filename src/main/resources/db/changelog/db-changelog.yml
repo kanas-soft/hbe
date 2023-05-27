@@ -4,4 +4,4 @@ databaseChangeLog:
       author: your-name
       changes:
         - sql:
-            sql: "-- Placeholder change set"
+            sql: "-- Placeholder change set "
