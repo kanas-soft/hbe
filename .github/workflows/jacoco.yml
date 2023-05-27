@@ -58,12 +58,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add comment to pull request
-        uses: peter-evans/create-pull-request-comment@v3
+        uses: actions/github-script@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            Hello! This is a comment on the pull request.
-            You can customize the comment text here.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { context, github } = require('@actions/github');
+            const message = 'Hello! This is a comment on the pull request.';
+            const { owner, repo, number } = context.issue;
+            github.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              body: message
+            });
 
       - name: Get the Coverage info
         run: |
