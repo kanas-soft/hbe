@@ -57,6 +57,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Add comment to pull request
+        uses: peter-evans/create-pull-request-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Hello! This is a comment on the pull request.
+            You can customize the comment text here.
+
       - name: Get the Coverage info
         run: |
           echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
