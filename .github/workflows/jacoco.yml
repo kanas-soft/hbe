@@ -96,3 +96,24 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
+
+      - name: Set coverage outputs
+        run: echo "COVERAGE=${{ steps.jacoco.outputs.coverage }}" >> $GITHUB_ENV
+      - name: Set branches outputs
+        run: echo "BRANCHES=${{ steps.jacoco.outputs.branches }}" >> $GITHUB_ENV
+
+      - name: Comment on PR
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const coverage = process.env.COVERAGE;
+            const branches = process.env.BRANCHES;
+            const newLine = '%0A';
+            const body = `## JaCoCo Test Coverage Summary Statistics${newLine}* __Coverage:__ ${coverage}${newLine}* __Branches:__ ${branches}`;
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
