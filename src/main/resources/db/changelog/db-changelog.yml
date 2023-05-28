@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: placeholder
+      author: your-name
+      changes:
+        - sql:
+            sql: "-- Placeholder change set "

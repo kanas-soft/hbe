@@ -11,4 +11,9 @@ public class TestController {
         return "Hello World!";
     }
 
+    @GetMapping("/bye")
+    public String byebyeWrold() {
+        return "Goodbye World!";
+    }
+
 }
