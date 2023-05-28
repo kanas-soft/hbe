@@ -29,4 +29,16 @@ public class TestControllerApiTest {
                     .andExpect(MockMvcResultMatchers.content().string("Hello World!"));
         }
     }
+
+    @DisplayName("Goodby World Tests")
+    @Nested
+    class byebyeWorldTests {
+
+        @Test
+        void whenCalling_throwNoErrors() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders.get("/bye"))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().string("Goodbye World!"));
+        }
+    }
 }
