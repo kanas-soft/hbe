@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-auth-tokens-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: auth_tokens
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: token
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: expiry_date
+                  type: timestamp
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: auth_token_user_fk
+                    references: users(id)
