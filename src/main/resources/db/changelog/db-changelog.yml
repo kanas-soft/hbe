@@ -1,13 +1,19 @@
 databaseChangeLog:
+  - changeSet:
+      id: placeholder
+      author: your-name
+      changes:
+        - sql:
+            sql: "-- Placeholder change set "
   - include:
-      file: ./schema/changelog-users.yml
+      file: db/changelog/schema/changelog-users.yml
   - include:
-      file: ./schema/changelog-roles.yml
+      file: db/changelog/schema/changelog-roles.yml
   - include:
-      file: ./schema/changelog-users-roles.yml
+      file: db/changelog/schema/changelog-users-roles.yml
   - include:
-      file: ./schema/changelog-auth-tokens.yml
+      file: db/changelog/schema/changelog-auth-tokens.yml
   - include:
-      file: ./schema/changelog-verification-tokens.yml
+      file: db/changelog/schema/changelog-verification-tokens.yml
   - include:
-      file: ./schema/changelog-contacts.yml
+      file: db/changelog/schema/changelog-contacts.yml

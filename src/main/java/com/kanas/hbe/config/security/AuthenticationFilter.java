@@ -1,7 +1,7 @@
 package com.kanas.hbe.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kanas.hbe.user.domain.dto.UserDto;
+import com.kanas.hbe.domain.dto.UserDto;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
