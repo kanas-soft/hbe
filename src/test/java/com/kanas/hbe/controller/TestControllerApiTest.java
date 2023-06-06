@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-@WebMvcTest
+@WebMvcTest(TestController.class)
 @ExtendWith(SpringExtension.class)
 public class TestControllerApiTest {
 

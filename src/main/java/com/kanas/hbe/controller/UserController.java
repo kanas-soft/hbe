@@ -1,4 +1,4 @@
-package com.kanas.hbe.web;
+package com.kanas.hbe.controller;
 
 import com.kanas.hbe.domain.dto.RegistrationDto;
 import com.kanas.hbe.exception.EmailAlreadyExistsException;
