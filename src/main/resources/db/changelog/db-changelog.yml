@@ -1,7 +1,9 @@
 databaseChangeLog:
-  - changeSet:
-      id: placeholder
-      author: your-name
-      changes:
-        - sql:
-            sql: "-- Placeholder change set "
+  - include:
+      file: db/changelog/schema/changelog-users.yml
+  - include:
+      file: db/changelog/schema/changelog-roles.yml
+  - include:
+      file: db/changelog/schema/changelog-users-roles.yml
+  - include:
+      file: db/changelog/schema/changelog-insert-roles.yml

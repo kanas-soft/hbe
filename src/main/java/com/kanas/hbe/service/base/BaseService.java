@@ -13,9 +13,11 @@ import org.springframework.util.Assert;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
- * Interface to a Service bean, that should handle all common operations related to entities.
+ * Interface to a Service bean, that should handle all common operations related
+ * to entities.
  *
  * @param <E> - entity type.
  */
@@ -41,7 +43,7 @@ public interface BaseService<E extends BaseEntity> {
      *
      * @return the entity.
      */
-    default Optional<E> findById(Long id) {
+    default Optional<E> findById(UUID id) {
         Assert.notNull(id, "Identifier cannot be null");
         getLogger().debug("Request to fetch entity of type {} with ID: {}!", getType().getSimpleName(), id);
 
@@ -89,7 +91,7 @@ public interface BaseService<E extends BaseEntity> {
      * @param id - identifier of the entity.
      */
     @Transactional(propagation = Propagation.REQUIRED)
-    default void deleteById(@NotNull Long id) {
+    default void deleteById(@NotNull UUID id) {
         Assert.notNull(id, "Identifier cannot be null");
         getLogger().debug("Request to delete entity of type: {}, with ID: {}!", getType().getSimpleName(), id);
 
@@ -112,7 +114,7 @@ public interface BaseService<E extends BaseEntity> {
      *
      * @return repository.
      */
-    JpaRepository<E, Long> getJpaRepository();
+    JpaRepository<E, UUID> getJpaRepository();
 
     /**
      * Get current class logger.
