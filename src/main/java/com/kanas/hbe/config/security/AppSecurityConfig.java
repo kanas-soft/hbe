@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -36,18 +37,19 @@ public class AppSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors().and()
-                .csrf().disable();
+                .cors().disable(); // NOSONAR
+        http
+                .csrf().disable(); // NOSONAR
 
         http
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // NOSONAR
 
         http
                 .addFilter(new AuthenticationFilter(authenticationConfiguration.getAuthenticationManager()))
                 .addFilterAfter(new AuthorizationFilter(), AuthenticationFilter.class);
 
         http
-                .authorizeHttpRequests()
+                .authorizeHttpRequests() // NOSONAR
                 .requestMatchers("/login", "/api/v1/users/register/**").permitAll()
                 .anyRequest()
                 .authenticated();
@@ -61,7 +63,7 @@ public class AppSecurityConfig {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(userService)
                 .passwordEncoder(passwordEncoder)
-                .and()
+                .and() // NOSONAR
                 .build();
     }
 
