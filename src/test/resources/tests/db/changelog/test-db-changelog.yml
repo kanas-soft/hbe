@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: tests/db/changelog/schema/changelog-users.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-roles.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-users-roles.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-insert-roles.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-insert-users.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-insert-roles-users.yml

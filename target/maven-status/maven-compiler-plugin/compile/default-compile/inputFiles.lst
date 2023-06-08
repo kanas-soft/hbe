@@ -2,8 +2,10 @@
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/HbeApplication.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/entity/Role.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/entity/User.java
+/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/security/PasswordEncoderConfig.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/controller/UserController.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/validation/annotation/ValidEmail.java
+/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/service/impl/RoleServiceImpl.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/UserDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/BaseDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/security/SecurityConstants.java
@@ -18,6 +20,7 @@
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/controller/TestController.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/security/AppSecurityConfig.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/validation/EmailValidator.java
+/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/service/RoleService.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/RegistrationDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/entity/BaseEntity.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/exception/UsernameAlreadyExistsException.java

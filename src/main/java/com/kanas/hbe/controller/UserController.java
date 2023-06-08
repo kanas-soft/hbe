@@ -30,7 +30,6 @@ public class UserController {
 
         try {
             userService.registerNewUserAccount(registrationDto);
-
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (EmailAlreadyExistsException | UsernameAlreadyExistsException e) {
             return ResponseEntity.badRequest().build();
