@@ -1,0 +1,3 @@
+sonar:
+  coverage:
+    exclusions: "**/config/**/*, **/domain/**, **/validation/**, **/repo/**, **/exception/**"

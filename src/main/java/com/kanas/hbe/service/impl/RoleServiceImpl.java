@@ -11,6 +11,9 @@ import com.kanas.hbe.domain.enumeration.UserRole;
 import com.kanas.hbe.repo.RoleRepository;
 import com.kanas.hbe.service.RoleService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class RoleServiceImpl implements RoleService {
 
@@ -32,7 +35,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Logger getLogger() {
-        return null;
+        return log;
     }
 
     @Override

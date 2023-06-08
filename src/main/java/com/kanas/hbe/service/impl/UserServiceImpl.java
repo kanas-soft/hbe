@@ -9,6 +9,9 @@ import com.kanas.hbe.exception.UsernameAlreadyExistsException;
 import com.kanas.hbe.mapper.UserMapper;
 import com.kanas.hbe.repo.UserRepository;
 import com.kanas.hbe.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.kanas.hbe.service.RoleService;
 
 import java.util.Arrays;
@@ -23,7 +26,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-//@Slf4j
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
@@ -67,12 +70,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public JpaRepository<User, UUID> getJpaRepository() {
-        return null;
+        return userRepository;
     }
 
     @Override
     public Logger getLogger() {
-        return null;
+        return log;
     }
 
     @Override
