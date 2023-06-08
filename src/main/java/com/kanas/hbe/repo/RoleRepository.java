@@ -11,6 +11,6 @@ import com.kanas.hbe.domain.enumeration.UserRole;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, UUID> {
 
-    Role findByRole(UserRole role);
+    Role findByUserRole(UserRole userRole);
 
 }

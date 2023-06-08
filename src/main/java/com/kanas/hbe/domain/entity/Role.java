@@ -19,9 +19,9 @@ import com.kanas.hbe.domain.enumeration.UserRole;
 @NoArgsConstructor
 public class Role extends BaseEntity {
 
-    @Column
+    @Column(name = "role")
     @Enumerated(value = EnumType.STRING)
-    private UserRole role;
+    private UserRole userRole;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();

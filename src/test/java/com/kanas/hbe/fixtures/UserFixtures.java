@@ -1,6 +1,12 @@
 package com.kanas.hbe.fixtures;
 
+import java.util.Set;
+
 import com.kanas.hbe.domain.dto.RegistrationDto;
+import com.kanas.hbe.domain.dto.UserDto;
+import com.kanas.hbe.domain.entity.Role;
+import com.kanas.hbe.domain.entity.User;
+import com.kanas.hbe.domain.enumeration.UserRole;
 
 public final class UserFixtures {
 
@@ -48,6 +54,28 @@ public final class UserFixtures {
                 .lastName(VALID_LAST_NAME)
                 .address(VALID_ADDRESS)
                 .phoneNumber(VALID_PHONENUMBER)
+                .build();
+    }
+
+    public static UserDto createUserDto() {
+        return UserDto.builder()
+                .username(VALID_USERNAME)
+                .email(VALID_EMAIL)
+                .password(VALID_PASSWORD)
+                .roles(Set.of(UserRole.ADMIN))
+                .build();
+    }
+
+    public static User createUser() {
+
+        Role role = new Role();
+        role.setUserRole(UserRole.ADMIN);
+
+        return User.builder()
+                .username(VALID_USERNAME)
+                .email(VALID_EMAIL)
+                .password(VALID_PASSWORD)
+                .roles(Set.of(role))
                 .build();
     }
 }

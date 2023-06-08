@@ -7,9 +7,10 @@ import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -20,7 +21,7 @@ import com.kanas.hbe.repo.UserRepository;
 import com.kanas.hbe.service.RoleService;
 import com.kanas.hbe.service.impl.UserServiceImpl;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
 public class UserServiceUTests {
 
@@ -50,7 +51,7 @@ public class UserServiceUTests {
             userService.registerNewUserAccount(UserFixtures.createRegistrationDto());
 
             // Then
-            verify(roleService, times(1)).findByRole(any());
+            verify(roleService, times(1)).findByUserRole(any());
             verify(userRepository, times(1)).save(any(User.class));
             verify(userRepository, times(1)).existsByEmail(any());
             verify(userRepository, times(1)).existsByUsername(any());

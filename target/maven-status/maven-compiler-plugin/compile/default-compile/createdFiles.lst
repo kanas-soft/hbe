@@ -24,6 +24,8 @@ com/kanas/hbe/controller/UserController.class
 com/kanas/hbe/service/base/BaseService.class
 com/kanas/hbe/exception/EmailAlreadyExistsException.class
 com/kanas/hbe/repo/UserRepository.class
+com/kanas/hbe/domain/entity/User$UserBuilder.class
+com/kanas/hbe/domain/dto/UserDto$UserDtoBuilder.class
 com/kanas/hbe/config/security/SecurityConstants.class
 com/kanas/hbe/service/impl/RoleServiceImpl.class
 com/kanas/hbe/domain/entity/User.class

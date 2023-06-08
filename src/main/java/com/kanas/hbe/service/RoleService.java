@@ -6,5 +6,5 @@ import com.kanas.hbe.service.base.BaseService;
 
 public interface RoleService extends BaseService<Role> {
 
-    Role findByRole(UserRole role);
+    Role findByUserRole(UserRole role);
 }
