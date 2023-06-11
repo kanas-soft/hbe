@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insertUsers
+      author: TodorValkov
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: "de305d54-75b4-431b-adb2-eb6b9e546014"
+              - column:
+                  name: username
+                  value: "tosho"
+              - column:
+                  name: email
+                  value: "todorv1@gmail.com"
+              - column:
+                  name: password
+                  value: "$2a$10$3bVMnlx5XK8kpezidVgLjOIOwy5g.iwe4LYTN/HAcls36eTSpl6fe"
+              - column:
+                  name: enabled
+                  value: true

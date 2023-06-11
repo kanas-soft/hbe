@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: insertRoles
+      author: TodorValkov
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: "3a6b792e-4409-4e65-bf63-3de4f87a2d6f"
+              - column:
+                  name: role
+                  value: "ADMIN"
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: "7d0b174a-92d1-42a8-8a88-d7395c37b208"
+              - column:
+                  name: role
+                  value: "WORKER"
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: "f23b53d3-3b09-4d96-a051-ee7e7f7f08b1"
+              - column:
+                  name: role
+                  value: "CLIENT"

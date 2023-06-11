@@ -4,9 +4,11 @@ import com.kanas.hbe.validation.annotation.ValidEmail;
 import com.kanas.hbe.validation.annotation.ValidPassword;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class RegistrationDto {
 
     @NotNull

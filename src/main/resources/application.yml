@@ -1,9 +1,12 @@
-server:
-  port: 8080
 spring:
   datasource:
     url: jdbc:postgresql://containers-us-west-13.railway.app:7064/railway
     username: postgres
     password: SOQyXFocMyVukojw2ApG
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
   liquibase:
     change-log: classpath:db/changelog/db-changelog.yml
