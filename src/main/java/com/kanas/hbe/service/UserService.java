@@ -11,6 +11,8 @@ import com.kanas.hbe.service.base.BaseService;
  */
 public interface UserService extends BaseService<User> {
 
-    void registerNewUserAccount(RegistrationDto registrationDto) throws EmailAlreadyExistsException,
+    User registerNewUserAccount(RegistrationDto registrationDto) throws EmailAlreadyExistsException,
             UsernameAlreadyExistsException;
+
+    void confirmRegistration(String token);
 }

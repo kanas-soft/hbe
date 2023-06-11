@@ -1,24 +1,15 @@
 package com.kanas.hbe.UnitTests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
+import com.kanas.hbe.fixtures.UserFixtures;
+import com.kanas.hbe.mapper.UserMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.kanas.hbe.domain.enumeration.UserRole;
-import com.kanas.hbe.fixtures.UserFixtures;
-import com.kanas.hbe.mapper.UserMapper;
-import com.kanas.hbe.repo.RoleRepository;
-import com.kanas.hbe.service.impl.RoleServiceImpl;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")

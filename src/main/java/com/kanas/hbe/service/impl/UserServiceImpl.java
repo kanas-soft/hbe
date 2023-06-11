@@ -4,20 +4,16 @@ import com.kanas.hbe.domain.dto.RegistrationDto;
 import com.kanas.hbe.domain.entity.Role;
 import com.kanas.hbe.domain.entity.User;
 import com.kanas.hbe.domain.enumeration.UserRole;
+import com.kanas.hbe.exception.ConfirmationTokenExpiredException;
 import com.kanas.hbe.exception.EmailAlreadyExistsException;
+import com.kanas.hbe.exception.InvalidConfirmationTokenException;
 import com.kanas.hbe.exception.UsernameAlreadyExistsException;
 import com.kanas.hbe.mapper.UserMapper;
-import com.kanas.hbe.repo.UserRepository;
-import com.kanas.hbe.service.UserService;
-
-import lombok.extern.slf4j.Slf4j;
-
+import com.kanas.hbe.repository.UserRepository;
+import com.kanas.hbe.service.ConfirmationTokenService;
 import com.kanas.hbe.service.RoleService;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.UUID;
-
+import com.kanas.hbe.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,19 +22,28 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.UUID;
+
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
-    private final RoleService roleService;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RoleService roleService;
+    private final ConfirmationTokenService confirmationTokenService;
 
-    public UserServiceImpl(UserRepository userRepository, RoleService roleService,
-            PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository,
+                           RoleService roleService,
+                           PasswordEncoder passwordEncoder,
+                           ConfirmationTokenService confirmationTokenService) {
         this.roleService = roleService;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.confirmationTokenService = confirmationTokenService;
     }
 
     @Override
@@ -49,7 +54,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void registerNewUserAccount(RegistrationDto registrationDto) throws EmailAlreadyExistsException,
+    public User registerNewUserAccount(RegistrationDto registrationDto) throws EmailAlreadyExistsException,
             UsernameAlreadyExistsException {
 
         if (userRepository.existsByUsername(registrationDto.getUsername())) {
@@ -62,10 +67,30 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         User user = UserMapper.toEntity(registrationDto);
         Role role = roleService.findByUserRole(UserRole.CLIENT);
-        user.setRoles(new HashSet<>(Arrays.asList(role)));
+        user.setRoles(new HashSet<>(Collections.singletonList(role)));
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
 
-        userRepository.save(user);
+        return this.save(user);
+    }
+
+    @Override
+    public void confirmRegistration(String token) {
+        var optionalConfirmationToken = confirmationTokenService.getConfirmationToken(token);
+
+        if (optionalConfirmationToken.isEmpty()) {
+            throw new InvalidConfirmationTokenException(token);
+        }
+
+        var confirmationToken = optionalConfirmationToken.get();
+
+        if (confirmationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+            throw new ConfirmationTokenExpiredException(token, confirmationToken.getExpiryDate());
+        }
+
+        User user = confirmationToken.getUser();
+        user.setEnabled(true);
+
+        this.save(user);
     }
 
     @Override

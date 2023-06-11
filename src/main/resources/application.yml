@@ -10,3 +10,6 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog/db-changelog.yml
+
+fixt:
+  base-url: http://localhost:8080/api

@@ -1,12 +1,13 @@
 package com.kanas.hbe.domain.dto;
 
-import java.io.Serializable;
-import java.util.UUID;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Base DTO abstract class.
@@ -16,6 +17,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public abstract class BaseDto implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 4L;
 
     private UUID id;
 }

@@ -1,9 +1,11 @@
 package com.kanas.hbe.UnitTests;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
+import com.kanas.hbe.domain.entity.User;
+import com.kanas.hbe.fixtures.UserFixtures;
+import com.kanas.hbe.repository.RoleRepository;
+import com.kanas.hbe.repository.UserRepository;
+import com.kanas.hbe.service.RoleService;
+import com.kanas.hbe.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -14,12 +16,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.kanas.hbe.domain.entity.User;
-import com.kanas.hbe.fixtures.UserFixtures;
-import com.kanas.hbe.repo.RoleRepository;
-import com.kanas.hbe.repo.UserRepository;
-import com.kanas.hbe.service.RoleService;
-import com.kanas.hbe.service.impl.UserServiceImpl;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
