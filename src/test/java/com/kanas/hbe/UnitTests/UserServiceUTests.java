@@ -4,6 +4,7 @@ import com.kanas.hbe.domain.entity.User;
 import com.kanas.hbe.fixtures.UserFixtures;
 import com.kanas.hbe.repository.RoleRepository;
 import com.kanas.hbe.repository.UserRepository;
+import com.kanas.hbe.service.ConfirmationTokenService;
 import com.kanas.hbe.service.RoleService;
 import com.kanas.hbe.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -36,6 +37,9 @@ public class UserServiceUTests {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private ConfirmationTokenService confirmationTokenService;
+
     @InjectMocks
     private UserServiceImpl userService;
 
@@ -51,7 +55,7 @@ public class UserServiceUTests {
 
             // Then
             verify(roleService, times(1)).findByUserRole(any());
-            verify(userRepository, times(1)).save(any(User.class));
+            verify(userRepository, times(1)).saveAndFlush(any(User.class));
             verify(userRepository, times(1)).existsByEmail(any());
             verify(userRepository, times(1)).existsByUsername(any());
         }

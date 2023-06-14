@@ -1,7 +1,9 @@
 package com.kanas.hbe.ApiTests;
 
 import com.kanas.hbe.controller.UserController;
+import com.kanas.hbe.event.publisher.EventPublisher;
 import com.kanas.hbe.fixtures.UserFixtures;
+import com.kanas.hbe.service.ConfirmationTokenService;
 import com.kanas.hbe.service.UserService;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,6 +24,12 @@ public class UserControllerApiTest extends BaseApiTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private EventPublisher eventPublisher;
+
+    @MockBean
+    private ConfirmationTokenService confirmationTokenService;
 
     @BeforeAll
     public void setup() {

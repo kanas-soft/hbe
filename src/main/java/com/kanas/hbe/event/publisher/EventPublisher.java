@@ -14,17 +14,17 @@ public class EventPublisher {
     @Value("${fixt.base-url}")
     private String baseUrl;
 
-    private final ApplicationEventPublisher eventPublisher;
+    private final ApplicationEventPublisher appEventPublisher;
 
     public EventPublisher(ApplicationEventPublisher eventPublisher) {
-        this.eventPublisher = eventPublisher;
+        this.appEventPublisher = eventPublisher;
     }
 
     public void publishUserRegistrationEvent(User registeredUser) {
-        eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registeredUser, baseUrl));
+        appEventPublisher.publishEvent(new OnRegistrationCompleteEvent(registeredUser, baseUrl));
     }
 
     public void publishResendTokenEvent(ConfirmationToken token) {
-        eventPublisher.publishEvent(new OnResendTokenEvent(token.getUser(), token.getToken(), baseUrl));
+        appEventPublisher.publishEvent(new OnResendTokenEvent(token.getUser(), token.getToken(), baseUrl));
     }
 }
