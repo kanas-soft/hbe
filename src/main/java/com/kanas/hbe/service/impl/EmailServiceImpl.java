@@ -2,8 +2,8 @@ package com.kanas.hbe.service.impl;
 
 import com.kanas.hbe.service.EmailService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import static com.kanas.hbe.util.constant.EmailConstants.*;
@@ -14,22 +14,23 @@ public class EmailServiceImpl implements EmailService {
     @Value("${fixt.base-url}")
     private String baseUrl;
 
-    private final JavaMailSender javaMailSender;
+    private final MailSender mailSender;
 
-    // SMTP server settings needed in order to have JavaMailSender bean work.
-    public EmailServiceImpl(JavaMailSender javaMailSender) {
-        this.javaMailSender = javaMailSender;
+    public EmailServiceImpl(MailSender javaMailSender) {
+        this.mailSender = javaMailSender;
     }
 
     @Override
     public void sendEmail(String to, String subject, String text) {
         SimpleMailMessage email = new SimpleMailMessage();
 
+        // We should use a dedicated email address for this
+        email.setFrom("todorv1@gmail.com");
         email.setTo(to);
         email.setSubject(subject);
         email.setText(text);
 
-        javaMailSender.send(email);
+        mailSender.send(email);
     }
 
     @Override

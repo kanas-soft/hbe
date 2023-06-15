@@ -33,7 +33,7 @@ public final class UserMapper {
         user.setUsername(registrationDto.getUsername());
         user.setPassword(registrationDto.getPassword());
         user.setEmail(registrationDto.getEmail());
-        user.setEnabled(true);
+        user.setEnabled(false);
         return user;
     }
 

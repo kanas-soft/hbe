@@ -10,6 +10,10 @@ import com.kanas.hbe.service.ConfirmationTokenService;
 import com.kanas.hbe.service.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+
+import java.net.URI;
+
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +31,8 @@ public class UserController {
     private final ConfirmationTokenService confirmationTokenService;
 
     public UserController(EventPublisher eventPublisher,
-                          UserService userService,
-                          ConfirmationTokenService confirmationTokenService) {
+            UserService userService,
+            ConfirmationTokenService confirmationTokenService) {
         this.eventPublisher = eventPublisher;
         this.userService = userService;
         this.confirmationTokenService = confirmationTokenService;
@@ -55,17 +59,24 @@ public class UserController {
 
         userService.confirmRegistration(token);
 
-        return ResponseEntity.ok("redirect:/login");
+        // Redirect to login page
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create("https://www.google.com/"));
+        return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
+
     }
 
     @GetMapping("/resend-token")
-    private ResponseEntity<String> resendConfirmationToken(@RequestParam("token") String token) {
+    public ResponseEntity<String> resendConfirmationToken(@RequestParam("token") String token) {
         log.debug("REST request to resend confirmation token for user!");
 
         ConfirmationToken confirmationToken = confirmationTokenService.regenerateConfirmationToken(token);
 
         eventPublisher.publishResendTokenEvent(confirmationToken);
 
-        return ResponseEntity.ok("redirect:/login");
+        // Redirect to login page
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create("https://www.google.com/"));
+        return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 }

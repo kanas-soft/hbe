@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: insertConfirmationTokens
+      author: TodorValkov
+      changes:
+        - insert:
+            tableName: confirmation_tokens
+            columns:
+              - column:
+                  name: id
+                  value: "300268de-2822-46eb-9458-d25667797193"
+              - column:
+                  name: token
+                  value: "8ce266f2-18c7-4c61-892d-04f54a929c8f"
+              - column:
+                  name: expiry_date
+                  value: "2023-06-14 16:00:00"
+              - column:
+                  name: user_id
+                  value: "4875fb1b-bd19-4262-843f-1974e037a05a"

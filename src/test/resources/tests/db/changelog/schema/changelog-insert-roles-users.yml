@@ -12,3 +12,12 @@ databaseChangeLog:
               - column:
                   name: role_id
                   value: "3a6b792e-4409-4e65-bf63-3de4f87a2d6f"
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: "4875fb1b-bd19-4262-843f-1974e037a05a"
+              - column:
+                  name: role_id
+                  value: "3a6b792e-4409-4e65-bf63-3de4f87a2d6f"

@@ -49,7 +49,10 @@ public class AppSecurityConfig {
 
         http
                 .authorizeHttpRequests() // NOSONAR
-                .requestMatchers("/login", "/api/v1/users/register/**").permitAll()
+                .requestMatchers("/login",
+                        "/api/v1/users/register/**",
+                        "/api/v1/users/confirm-registration/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated();
 

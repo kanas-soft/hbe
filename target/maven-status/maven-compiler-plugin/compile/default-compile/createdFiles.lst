@@ -33,7 +33,6 @@ com/kanas/hbe/exception/ConfirmationTokenExpiredException.class
 com/kanas/hbe/event/listener/ConfirmationTokenReSendListener.class
 com/kanas/hbe/repository/RoleRepository.class
 com/kanas/hbe/service/base/BaseService.class
-com/kanas/hbe/config/MailConfig.class
 com/kanas/hbe/security/AppSecurityConfig$1.class
 com/kanas/hbe/exception/EmailAlreadyExistsException.class
 com/kanas/hbe/domain/entity/User$UserBuilder.class
@@ -47,3 +46,4 @@ com/kanas/hbe/service/EmailService.class
 com/kanas/hbe/security/filter/AuthorizationFilter.class
 com/kanas/hbe/domain/entity/ConfirmationToken$ConfirmationTokenBuilder.class
 com/kanas/hbe/util/constant/EmailConstants.class
+com/kanas/hbe/config/SesConfiguration.class

@@ -11,3 +11,7 @@ databaseChangeLog:
       file: tests/db/changelog/schema/changelog-insert-users.yml
   - include:
       file: tests/db/changelog/schema/changelog-insert-roles-users.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-confirmation-tokens.yml
+  - include:
+      file: tests/db/changelog/schema/changelog-insert-changelog-confirmation-tokens.yml

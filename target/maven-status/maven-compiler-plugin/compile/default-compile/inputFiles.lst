@@ -9,6 +9,7 @@
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/controller/UserController.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/validation/annotation/ValidEmail.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/service/impl/RoleServiceImpl.java
+/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/SesConfiguration.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/UserDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/event/OnResendTokenEvent.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/BaseDto.java
@@ -35,7 +36,6 @@
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/service/impl/ConfirmationTokenServiceImpl.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/RegistrationDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/entity/ConfirmationToken.java
-/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/MailConfig.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/entity/BaseEntity.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/exception/UsernameAlreadyExistsException.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/validation/PasswordConstraintValidator.java
