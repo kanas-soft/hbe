@@ -38,7 +38,7 @@ public class ConfirmationTokenServiceITest {
 
             // Given When
             Optional<ConfirmationToken> optionalConfirmationToken = confirmationTokenService
-                    .getConfirmationToken("8ce266f2-18c7-4c61-892d-04f54a929c8f");
+                    .getConfirmationToken("e8a825a0-6d56-4ae6-bf28-5f8bfbfba6eb");
 
             // Then
             assertTrue(optionalConfirmationToken.isPresent());

@@ -18,3 +18,18 @@ databaseChangeLog:
               - column:
                   name: user_id
                   value: "4875fb1b-bd19-4262-843f-1974e037a05a"
+        - insert:
+            tableName: confirmation_tokens
+            columns:
+              - column:
+                  name: id
+                  value: "a4a1a9dd-bca2-4e8e-b601-47d23a4f4620"
+              - column:
+                  name: token
+                  value: "e8a825a0-6d56-4ae6-bf28-5f8bfbfba6eb"
+              - column:
+                  name: expiry_date
+                  value: "2023-06-14 16:00:00"
+              - column:
+                  name: user_id
+                  value: "4875fb1b-bd19-4262-843f-1974e037a05a"
