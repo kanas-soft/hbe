@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
-public class EventPublisherUTests {
+class EventPublisherUTests {
 
     @Mock
     private ApplicationEventPublisher appEventPublisher;
@@ -32,7 +32,7 @@ public class EventPublisherUTests {
     private EventPublisher eventPublisher;
 
     @Test
-    public void testPublishUserRegistrationEvent() {
+    void testPublishUserRegistrationEvent() {
         // GIVEN
         User user = UserFixtures.createUser();
 
@@ -48,7 +48,7 @@ public class EventPublisherUTests {
     }
 
     @Test
-    public void testPublishResendTokenEvent() {
+    void testPublishResendTokenEvent() {
         // GIVEN
         ConfirmationToken token = new ConfirmationToken();
         token.setUser(UserFixtures.createUser());

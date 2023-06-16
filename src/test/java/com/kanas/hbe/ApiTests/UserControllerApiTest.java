@@ -2,11 +2,16 @@ package com.kanas.hbe.ApiTests;
 
 import com.kanas.hbe.controller.UserController;
 import com.kanas.hbe.event.publisher.EventPublisher;
+import com.kanas.hbe.exception.UsernameAlreadyExistsException;
 import com.kanas.hbe.fixtures.UserFixtures;
 import com.kanas.hbe.service.ConfirmationTokenService;
 import com.kanas.hbe.service.UserService;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
 import java.time.Clock;
+import java.util.UUID;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +47,7 @@ public class UserControllerApiTest extends BaseApiTest {
 
     @Nested
     @DisplayName("Register User Tests")
-    class registerUserTests {
+    class RegisterUserTests {
 
         @Test
         void whenCreating_throwNoErrors() throws Exception {
@@ -56,23 +61,51 @@ public class UserControllerApiTest extends BaseApiTest {
             mvc.perform(request)
                     .andExpect(MockMvcResultMatchers.status().isCreated());
         }
-    }
-
-    @Nested
-    @DisplayName("User Email Confirmation Tests")
-    class userEmailConfirmationTests {
 
         @Test
-        void whenCreating_throwNoErrors() throws Exception {
+        void whenCreating_throwErrors() throws Exception {
 
             // Given
             var request = MockMvcRequestBuilders.post(PATH + "/register")
                     .contentType("application/json")
                     .content(toJson(UserFixtures.createRegistrationDto()));
 
+            when(userService.registerNewUserAccount(any())).thenThrow(new UsernameAlreadyExistsException("test"));
+
             // When Then
             mvc.perform(request)
-                    .andExpect(MockMvcResultMatchers.status().isCreated());
+                    .andExpect(MockMvcResultMatchers.status().is(400));
+        }
+    }
+
+    @Nested
+    @DisplayName("User Email Confirmation Tests")
+    class UserEmailConfirmationTests {
+
+        @Test
+        void whenConfirming_throwNoErrors() throws Exception {
+
+            // Given
+            var request = MockMvcRequestBuilders
+                    .get(PATH + "/confirm-registration?token=" + UUID.randomUUID().toString())
+                    .contentType("application/json");
+
+            // When Then
+            mvc.perform(request)
+                    .andExpect(MockMvcResultMatchers.status().is(303));
+        }
+
+        @Test
+        void whenResending_throwNoErrors() throws Exception {
+
+            // Given
+            var request = MockMvcRequestBuilders
+                    .get(PATH + "/resend-token?token=" + UUID.randomUUID().toString())
+                    .contentType("application/json");
+
+            // When Then
+            mvc.perform(request)
+                    .andExpect(MockMvcResultMatchers.status().is(303));
         }
     }
 }

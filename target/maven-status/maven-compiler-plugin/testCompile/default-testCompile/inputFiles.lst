@@ -6,6 +6,7 @@
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/TestControllerApiTest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/fixtures/UserFixtures.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/ConfirmationTokenServiceITest.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/RegistrationListenerUTests.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/RoleServiceUTests.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/UserServiceITest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/BaseApiTest.java
