@@ -24,3 +24,8 @@ cloud:
 
 fixt:
   base-url: http://localhost:8080/api
+
+time-travel:
+  enabled: false
+  instant: 2022-09-01T12:00:00.00Z
+  zone: UTC

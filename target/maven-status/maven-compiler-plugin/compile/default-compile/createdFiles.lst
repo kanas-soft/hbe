@@ -18,6 +18,7 @@ com/kanas/hbe/util/constant/SecurityConstants.class
 com/kanas/hbe/service/UserService.class
 com/kanas/hbe/security/PasswordEncoderConfig.class
 com/kanas/hbe/domain/dto/RegistrationDto$RegistrationDtoBuilder.class
+com/kanas/hbe/config/ClockConfig.class
 com/kanas/hbe/event/listener/RegistrationListener.class
 com/kanas/hbe/domain/dto/BaseDto.class
 com/kanas/hbe/controller/TestController.class

@@ -1,13 +1,18 @@
 package com.kanas.hbe.IntegrationTests;
 
 import com.kanas.hbe.domain.dto.RegistrationDto;
+import com.kanas.hbe.exception.ConfirmationTokenExpiredException;
 import com.kanas.hbe.exception.EmailAlreadyExistsException;
+import com.kanas.hbe.exception.InvalidConfirmationTokenException;
 import com.kanas.hbe.exception.UsernameAlreadyExistsException;
 import com.kanas.hbe.fixtures.UserFixtures;
 import com.kanas.hbe.repository.RoleRepository;
 import com.kanas.hbe.repository.UserRepository;
 import com.kanas.hbe.service.RoleService;
 import com.kanas.hbe.service.impl.UserServiceImpl;
+
+import jakarta.transaction.Transactional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -19,7 +24,10 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+import java.time.Clock;
+import java.util.UUID;
+
+@SpringBootTest()
 @ActiveProfiles("test")
 public class UserServiceITest {
 
@@ -37,6 +45,9 @@ public class UserServiceITest {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
+    private Clock clock;
 
     @Nested
     @DisplayName("Register User ITests")
@@ -69,6 +80,41 @@ public class UserServiceITest {
             RegistrationDto registrationDto = UserFixtures.createRegistrationDto();
             // When Then
             assertDoesNotThrow(() -> userService.registerNewUserAccount(registrationDto));
+        }
+
+    }
+
+    @Nested
+    @DisplayName("Confirm Registration Of User ITests")
+    class ConfirmRegistrationUserITests {
+
+        @Test
+        void whenConfirming_throwInvalidTokenException() throws Exception {
+            // Given
+            String invalidToken = UUID.randomUUID().toString();
+            // When Then
+            assertThrows(InvalidConfirmationTokenException.class,
+                    () -> userService.confirmRegistration(invalidToken));
+        }
+
+        @Test
+        void whenConfirming_throwInvalidTokenExpiryDateException() throws Exception {
+
+            // Given
+            String invalidToken = "8ce266f2-18c7-4c61-892d-04f54a929c8f";
+            // When Then
+            assertThrows(ConfirmationTokenExpiredException.class,
+                    () -> userService.confirmRegistration(invalidToken));
+        }
+
+        @Test
+        @Transactional
+        void whenConfirming_NoErrors() throws Exception {
+
+            // Given
+            String validToken = "f5fb51a1-b43d-46d7-9d91-9260d52d2b7a";
+            // When Then
+            assertDoesNotThrow(() -> userService.confirmRegistration(validToken));
         }
 
     }

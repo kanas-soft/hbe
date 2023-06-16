@@ -10,6 +10,7 @@
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/validation/annotation/ValidEmail.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/service/impl/RoleServiceImpl.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/SesConfiguration.java
+/home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/config/ClockConfig.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/UserDto.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/event/OnResendTokenEvent.java
 /home/todor/Documents/repos/hbe/src/main/java/com/kanas/hbe/domain/dto/BaseDto.java

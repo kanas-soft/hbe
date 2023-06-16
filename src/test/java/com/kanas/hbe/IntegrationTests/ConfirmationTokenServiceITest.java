@@ -15,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.time.Clock;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,6 +30,9 @@ public class ConfirmationTokenServiceITest {
     @Autowired
     private ConfirmationTokenServiceImpl confirmationTokenService;
 
+    @Autowired
+    private Clock clock;
+
     @Nested
     @DisplayName("Get Confirmation Token ITests")
     class GetConfirmationToken {
@@ -38,7 +42,7 @@ public class ConfirmationTokenServiceITest {
 
             // Given When
             Optional<ConfirmationToken> optionalConfirmationToken = confirmationTokenService
-                    .getConfirmationToken("e8a825a0-6d56-4ae6-bf28-5f8bfbfba6eb");
+                    .getConfirmationToken("f5fb51a1-b43d-46d7-9d91-9260d52d2b7a");
 
             // Then
             assertTrue(optionalConfirmationToken.isPresent());
@@ -103,8 +107,8 @@ public class ConfirmationTokenServiceITest {
 
             // Given
             // Token that exists in the h2 db.
-            String token = "8ce266f2-18c7-4c61-892d-04f54a929c8f";
-            LocalDateTime dateTime1 = LocalDateTime.of(2023, 6, 14, 16, 0, 0);
+            String token = "e8a825a0-6d56-4ae6-bf28-5f8bfbfba6eb";
+            LocalDateTime dateTime1 = LocalDateTime.of(2023, 6, 14, 14, 0, 0);
 
             // When
             ConfirmationToken confirmationToken = confirmationTokenService.regenerateConfirmationToken(token);

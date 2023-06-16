@@ -28,4 +28,5 @@ com/kanas/hbe/IntegrationTests/UserServiceITest$LoadUserITests.class
 com/kanas/hbe/IntegrationTests/ConfirmationTokenServiceITest$ImplementedTokenITests.class
 com/kanas/hbe/UnitTests/RoleServiceUTests$RetreiveRoleUTests.class
 com/kanas/hbe/ApiTests/UserControllerApiTest$registerUserTests.class
+com/kanas/hbe/IntegrationTests/UserServiceITest$ConfirmRegistrationUserITests.class
 com/kanas/hbe/UnitTests/UserMapperUTests.class

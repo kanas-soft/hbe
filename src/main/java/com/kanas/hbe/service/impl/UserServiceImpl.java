@@ -22,6 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
@@ -35,15 +36,18 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
     private final ConfirmationTokenService confirmationTokenService;
+    private final Clock clock;
 
     public UserServiceImpl(UserRepository userRepository,
-                           RoleService roleService,
-                           PasswordEncoder passwordEncoder,
-                           ConfirmationTokenService confirmationTokenService) {
+            RoleService roleService,
+            PasswordEncoder passwordEncoder,
+            ConfirmationTokenService confirmationTokenService,
+            Clock clock) {
         this.roleService = roleService;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.confirmationTokenService = confirmationTokenService;
+        this.clock = clock;
     }
 
     @Override
@@ -83,7 +87,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         var confirmationToken = optionalConfirmationToken.get();
 
-        if (confirmationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+        if (confirmationToken.getExpiryDate().isBefore(LocalDateTime.now(clock))) {
             throw new ConfirmationTokenExpiredException(token, confirmationToken.getExpiryDate());
         }
 
