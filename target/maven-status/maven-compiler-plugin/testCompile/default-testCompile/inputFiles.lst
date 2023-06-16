@@ -1,11 +1,13 @@
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/UserControllerApiTest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/RoleServiceITest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/UserMapperUTests.java
-/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/RoleServiceUTests.java
-/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/UserServiceITest.java
-/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/BaseApiTest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/EmailServiceUTests.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/UserServiceUTests.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/TestControllerApiTest.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/fixtures/UserFixtures.java
 /home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/ConfirmationTokenServiceITest.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/RoleServiceUTests.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/IntegrationTests/UserServiceITest.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/ApiTests/BaseApiTest.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/EventPublisherUTests.java
+/home/todor/Documents/repos/hbe/src/test/java/com/kanas/hbe/UnitTests/ConfirmationTokenReSendListenerUTests.java
