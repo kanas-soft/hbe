@@ -46,6 +46,17 @@ public class EmailServiceUTests {
         }
 
         @Test
+        void whenSendingRegistrationIsNotFirstTry_verifyMailSenderIsCaled() throws Exception {
+
+            // Given When
+            emailService.sendRegistrationConfirmationEmail(UserFixtures.VALID_EMAIL, UUID.randomUUID().toString(),
+                    false);
+
+            // Then
+            verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
+        }
+
+        @Test
         void whenSending_verifyMailSenderIsCaled() throws Exception {
 
             // Given When
