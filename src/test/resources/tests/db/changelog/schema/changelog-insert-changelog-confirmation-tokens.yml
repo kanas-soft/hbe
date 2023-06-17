@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: insertConfirmationTokens
+      author: TodorValkov
+      changes:
+        - insert:
+            tableName: confirmation_tokens
+            columns:
+              - column:
+                  name: id
+                  value: "300268de-2822-46eb-9458-d25667797193"
+              - column:
+                  name: token
+                  value: "8ce266f2-18c7-4c61-892d-04f54a929c8f"
+              - column:
+                  name: expiry_date
+                  value: "2023-06-14 13:00:00"
+              - column:
+                  name: user_id
+                  value: "4875fb1b-bd19-4262-843f-1974e037a05a"
+        - insert:
+            tableName: confirmation_tokens
+            columns:
+              - column:
+                  name: id
+                  value: "a4a1a9dd-bca2-4e8e-b601-47d23a4f4620"
+              - column:
+                  name: token
+                  value: "e8a825a0-6d56-4ae6-bf28-5f8bfbfba6eb"
+              - column:
+                  name: expiry_date
+                  value: "2023-06-14 16:00:00"
+              - column:
+                  name: user_id
+                  value: "de305d54-75b4-431b-adb2-eb6b9e546014"
+        - insert:
+            tableName: confirmation_tokens
+            columns:
+              - column:
+                  name: id
+                  value: "43e7c3a8-710d-4a1c-90d3-5e7591560b48"
+              - column:
+                  name: token
+                  value: "f5fb51a1-b43d-46d7-9d91-9260d52d2b7a"
+              - column:
+                  name: expiry_date
+                  value: "2023-06-14 16:00:00"
+              - column:
+                  name: user_id
+                  value: "de305d54-75b4-431b-adb2-eb6b9e546014"

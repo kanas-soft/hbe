@@ -21,3 +21,21 @@ databaseChangeLog:
               - column:
                   name: enabled
                   value: true
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: "4875fb1b-bd19-4262-843f-1974e037a05a"
+              - column:
+                  name: username
+                  value: "gosho"
+              - column:
+                  name: email
+                  value: "godorv1@gmail.com"
+              - column:
+                  name: password
+                  value: "$2a$10$3bVMnlx5XK8kpezidVgLjOIOwy5g.iwe4LYTN/HAcls36eTSpl6fe"
+              - column:
+                  name: enabled
+                  value: true

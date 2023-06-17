@@ -10,3 +10,22 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog/db-changelog.yml
+
+cloud:
+  aws:
+    region:
+      static: eu-north-1
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      access-key: AKIA3Z4LAPLEORQEPG7Q
+      secret-key: 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
+
+fixt:
+  base-url: http://localhost:8080/api
+
+time-travel:
+  enabled: false
+  instant: 2022-09-01T12:00:00.00Z
+  zone: UTC

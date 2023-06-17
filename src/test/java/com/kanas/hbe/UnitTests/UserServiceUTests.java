@@ -1,9 +1,12 @@
 package com.kanas.hbe.UnitTests;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
+import com.kanas.hbe.domain.entity.User;
+import com.kanas.hbe.fixtures.UserFixtures;
+import com.kanas.hbe.repository.RoleRepository;
+import com.kanas.hbe.repository.UserRepository;
+import com.kanas.hbe.service.ConfirmationTokenService;
+import com.kanas.hbe.service.RoleService;
+import com.kanas.hbe.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -14,12 +17,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.kanas.hbe.domain.entity.User;
-import com.kanas.hbe.fixtures.UserFixtures;
-import com.kanas.hbe.repo.RoleRepository;
-import com.kanas.hbe.repo.UserRepository;
-import com.kanas.hbe.service.RoleService;
-import com.kanas.hbe.service.impl.UserServiceImpl;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
@@ -37,6 +37,9 @@ public class UserServiceUTests {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private ConfirmationTokenService confirmationTokenService;
+
     @InjectMocks
     private UserServiceImpl userService;
 
@@ -52,7 +55,7 @@ public class UserServiceUTests {
 
             // Then
             verify(roleService, times(1)).findByUserRole(any());
-            verify(userRepository, times(1)).save(any(User.class));
+            verify(userRepository, times(1)).saveAndFlush(any(User.class));
             verify(userRepository, times(1)).existsByEmail(any());
             verify(userRepository, times(1)).existsByUsername(any());
         }

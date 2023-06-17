@@ -1,8 +1,10 @@
 package com.kanas.hbe.IntegrationTests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import com.kanas.hbe.domain.enumeration.UserRole;
+import com.kanas.hbe.repository.RoleRepository;
+import com.kanas.hbe.repository.UserRepository;
+import com.kanas.hbe.service.RoleService;
+import com.kanas.hbe.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -11,11 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.kanas.hbe.domain.enumeration.UserRole;
-import com.kanas.hbe.repo.RoleRepository;
-import com.kanas.hbe.repo.UserRepository;
-import com.kanas.hbe.service.RoleService;
-import com.kanas.hbe.service.impl.UserServiceImpl;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @ActiveProfiles("test")
