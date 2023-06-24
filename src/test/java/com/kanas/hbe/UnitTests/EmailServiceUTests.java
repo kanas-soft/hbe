@@ -1,11 +1,7 @@
 package com.kanas.hbe.UnitTests;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
-import java.util.UUID;
-
+import com.kanas.hbe.fixtures.UserFixtures;
+import com.kanas.hbe.service.impl.EmailServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -17,8 +13,11 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.kanas.hbe.fixtures.UserFixtures;
-import com.kanas.hbe.service.impl.EmailServiceImpl;
+import java.util.UUID;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
@@ -35,7 +34,7 @@ public class EmailServiceUTests {
     class SendEmailTests {
 
         @Test
-        void whenSendingRegistration_verifyMailSenderIsCaled() throws Exception {
+        void whenSendingRegistration_verifyMailSenderIsCalled() {
 
             // Given When
             emailService.sendRegistrationConfirmationEmail(UserFixtures.VALID_EMAIL, UUID.randomUUID().toString(),
@@ -46,7 +45,7 @@ public class EmailServiceUTests {
         }
 
         @Test
-        void whenSendingRegistrationIsNotFirstTry_verifyMailSenderIsCaled() throws Exception {
+        void whenSendingRegistrationIsNotFirstTry_verifyMailSenderIsCalled() {
 
             // Given When
             emailService.sendRegistrationConfirmationEmail(UserFixtures.VALID_EMAIL, UUID.randomUUID().toString(),
@@ -57,7 +56,7 @@ public class EmailServiceUTests {
         }
 
         @Test
-        void whenSending_verifyMailSenderIsCaled() throws Exception {
+        void whenSending_verifyMailSenderIsCalled() {
 
             // Given When
             emailService.sendEmail(UserFixtures.VALID_EMAIL, UUID.randomUUID().toString(),
