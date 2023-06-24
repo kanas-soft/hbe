@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-job-ads-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: job_ads
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: description
+                  type: varchar(5000)
+              - column:
+                  name: location
+                  type: varchar(500)
+              - column:
+                  name: price
+                  type: double
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: finished_at
+                  type: timestamp
+              - column:
+                  name: status
+                  type: varchar(50)
+              - column:
+                  name: owner_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: owner_id
+                    references: users(id)
+              - column:
+                  name: assignee_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: assignee_id
+                    references: handymen(id)
