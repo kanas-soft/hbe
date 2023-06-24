@@ -21,3 +21,5 @@ databaseChangeLog:
       file: db/changelog/schema/changelog-handymen-regions.yml\
   - include:
       file: db/changelog/schema/changelog-job-ads.yml
+  - include:
+      file: db/changelog/schema/changelog-job-ads-expertises.yml
