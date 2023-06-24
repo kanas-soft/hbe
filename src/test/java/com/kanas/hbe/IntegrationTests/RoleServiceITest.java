@@ -60,11 +60,11 @@ public class RoleServiceITest {
     }
 
     @Nested
-    @DisplayName("Implementet Role ITests")
+    @DisplayName("Implemented Role ITests")
     class ImplementedRoleITests {
 
         @Test
-        void getJpaRepository_noErrorsExpected() throws Exception {
+        void getJpaRepository_noErrorsExpected() {
 
             // Given
             // When
@@ -77,7 +77,7 @@ public class RoleServiceITest {
         }
 
         @Test
-        void getLogger_noErrorExpected() throws Exception {
+        void getLogger_noErrorExpected() {
 
             // Given
             // When
@@ -88,7 +88,7 @@ public class RoleServiceITest {
         }
 
         @Test
-        void getType_noErrorExpected() throws Exception {
+        void getType_noErrorExpected() {
 
             // Given
             // When
