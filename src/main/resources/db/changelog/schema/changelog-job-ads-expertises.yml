@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-job-ads-expertises-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: job_ads_expertises
+            columns:
+              - column:
+                  name: job_ad_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: job_ads_expertises_job_ad_fk
+                    references: job_ads(id)
+                    nullable: false
+              - column:
+                  name: expertise_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: job_ads_expertises_expertise_fk
+                    references: expertises(id)
+                    nullable: false

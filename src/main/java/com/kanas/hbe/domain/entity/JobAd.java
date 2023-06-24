@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "job_ads")
@@ -41,4 +43,7 @@ public class JobAd extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assignee_id")
     private Handyman assignee;
+
+    @ManyToMany(mappedBy = "jobAds")
+    private Set<Expertise> expertises = new HashSet<>();
 }
