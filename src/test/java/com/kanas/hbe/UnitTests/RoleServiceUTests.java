@@ -27,11 +27,11 @@ public class RoleServiceUTests {
     private RoleServiceImpl roleService;
 
     @Nested
-    @DisplayName("Retreive Role UTests")
-    class RetreiveRoleUTests {
+    @DisplayName("Retrieve Role UTests")
+    class RetrieveRoleUTests {
 
         @Test
-        void whenRetreivingRole_verifyRoleRepoIsCalled() throws Exception {
+        void whenRetrievingRole_verifyRoleRepoIsCalled() {
 
             // Given When
             roleService.findByUserRole(UserRole.ADMIN);
