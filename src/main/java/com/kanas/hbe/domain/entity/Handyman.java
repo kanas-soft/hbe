@@ -34,4 +34,7 @@ public class Handyman extends BaseEntity {
 
     @ManyToMany(mappedBy = "handymen")
     private Set<Expertise> expertises = new HashSet<>();
+
+    @ManyToMany(mappedBy = "handymen")
+    private Set<Region> regions = new HashSet<>();
 }
