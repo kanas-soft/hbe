@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-handymen-regions-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: handymen_regions
+            columns:
+              - column:
+                  name: handyman_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: handymen_regions_handyman_fk
+                    references: handymen(id)
+                    nullable: false
+              - column:
+                  name: region_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: handymen_regions_region_fk
+                    references: regions(id)
+                    nullable: false

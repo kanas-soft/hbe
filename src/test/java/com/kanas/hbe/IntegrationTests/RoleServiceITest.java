@@ -45,7 +45,7 @@ public class RoleServiceITest {
             // Given
             // When
             var admin = roleService.findByUserRole(UserRole.ADMIN);
-            var worker = roleService.findByUserRole(UserRole.WORKER);
+            var worker = roleService.findByUserRole(UserRole.HANDYMAN);
             var client = roleService.findByUserRole(UserRole.CLIENT);
 
             // Then
@@ -53,7 +53,7 @@ public class RoleServiceITest {
             assertNotNull(worker);
             assertNotNull(client);
             assertEquals(UserRole.ADMIN, admin.getUserRole());
-            assertEquals(UserRole.WORKER, worker.getUserRole());
+            assertEquals(UserRole.HANDYMAN, worker.getUserRole());
             assertEquals(UserRole.CLIENT, client.getUserRole());
 
         }

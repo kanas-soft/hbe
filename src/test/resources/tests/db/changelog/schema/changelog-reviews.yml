@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-reviews-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: reviews
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: rating
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(5000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: likes
+                  type: int
+              - column:
+                  name: dislikes
+                  type: int
+              - column:
+                  name: is_testimonial
+                  type: boolean
+              - column:
+                  name: from_client_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: from_client_id
+                    references: users(id)
+              - column:
+                  name: to_handyman_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: to_handyman_id
+                    references: handymen(id)

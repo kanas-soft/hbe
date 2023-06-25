@@ -9,3 +9,19 @@ databaseChangeLog:
       file: db/changelog/schema/changelog-insert-roles.yml
   - include:
       file: db/changelog/schema/changelog-confirmation-tokens.yml
+  - include:
+      file: db/changelog/schema/changelog-handymen.yml
+  - include:
+      file: db/changelog/schema/changelog-expertises.yml
+  - include:
+      file: db/changelog/schema/changelog-handymen-expertises.yml
+  - include:
+      file: db/changelog/schema/changelog-regions.yml
+  - include:
+      file: db/changelog/schema/changelog-handymen-regions.yml
+  - include:
+      file: db/changelog/schema/changelog-job-ads.yml
+  - include:
+      file: db/changelog/schema/changelog-job-ads-expertises.yml
+  - include:
+      file: db/changelog/schema/changelog-reviews.yml
