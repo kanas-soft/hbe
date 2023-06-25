@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-values-into-regions-table-2023-06-25
+      author: ZdravkoMladenov
+      changes:
+        - sql:
+            sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Sofia');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Plovdiv');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Varna');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Burgas');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Stara Zagora');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES (uuid_generate_v4(), 'Haskovo');

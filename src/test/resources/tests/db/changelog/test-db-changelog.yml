@@ -31,3 +31,5 @@ databaseChangeLog:
       file: tests/db/changelog/schema/changelog-job-ads-expertises.yml
   - include:
       file: tests/db/changelog/schema/changelog-reviews.yml
+  - include:
+      file: tests/db/changelog/insert-values-into-regions-table-2023-06-21.yml

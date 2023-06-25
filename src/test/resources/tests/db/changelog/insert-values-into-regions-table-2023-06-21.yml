@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-values-into-regions-table-2023-06-25
+      author: ZdravkoMladenov
+      changes:
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('d49c56dc-1344-11ee-be56-0242ac120002', 'Sofia');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('da86ded2-1344-11ee-be56-0242ac120002', 'Plovdiv');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('dfb67bf6-1344-11ee-be56-0242ac120002', 'Varna');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('e695a2a8-1344-11ee-be56-0242ac120002', 'Burgas');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('e858415e-1344-11ee-be56-0242ac120002', 'Stara Zagora');
+        - sql:
+            sql: INSERT INTO regions (id, city) VALUES ('ec6d3ea2-1344-11ee-be56-0242ac120002', 'Haskovo');
