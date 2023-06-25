@@ -10,10 +10,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.kanas</groupId>
-    <artifactId>hbe</artifactId>
+    <artifactId>fixt-be</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hbe</name>
-    <description>Backend of the handyman project</description>
+    <name>fixt-be</name>
+    <description>Backend of the FIXT project</description>
 
     <properties>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
