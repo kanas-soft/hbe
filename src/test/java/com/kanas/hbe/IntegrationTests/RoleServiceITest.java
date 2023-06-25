@@ -40,7 +40,7 @@ public class RoleServiceITest {
     class LoadRoleITests {
 
         @Test
-        void whenLoadingByUsername_throwNoError() throws Exception {
+        void whenLoadingByUsername_throwNoError() {
 
             // Given
             // When

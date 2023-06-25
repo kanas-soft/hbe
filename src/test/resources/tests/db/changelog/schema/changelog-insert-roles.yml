@@ -20,7 +20,7 @@ databaseChangeLog:
                   value: "7d0b174a-92d1-42a8-8a88-d7395c37b208"
               - column:
                   name: role
-                  value: "WORKER"
+                  value: "HANDYMAN"
         - insert:
             tableName: roles
             columns:
