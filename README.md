@@ -1,2 +1,2 @@
 # FIXT-BE
-Back-End  lyaer for FIXT application.
+Back-End  layer for FIXT application.
