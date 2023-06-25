@@ -3,7 +3,9 @@ package com.kanas.hbe.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,6 +33,13 @@ public class Handyman extends BaseEntity {
 
     @Column
     private String company;
+
+    @OneToMany(
+            mappedBy = "assignee",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<JobAd> assignedJobs = new ArrayList<>();
 
     @ManyToMany(mappedBy = "handymen")
     private Set<Expertise> expertises = new HashSet<>();
