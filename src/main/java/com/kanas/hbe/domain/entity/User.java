@@ -30,11 +30,18 @@ public class User extends BaseEntity implements UserDetails {
     private boolean enabled;
 
     @OneToMany(
-            mappedBy = "owner",
+            mappedBy = "client",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<JobAd> jobAds = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "client",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Review> reviews = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),

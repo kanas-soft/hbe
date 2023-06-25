@@ -2,7 +2,7 @@ package com.kanas.hbe.domain.enumeration;
 
 public enum UserRole {
     ADMIN("ADMIN"),
-    WORKER("WORKER"),
+    HANDYMAN("HANDYMAN"),
     CLIENT("CLIENT");
 
     public final String type;

@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-handymen-expertises-table
+      author: ZdravkoMladenov
+      changes:
+        - createTable:
+            tableName: handymen_expertises
+            columns:
+              - column:
+                  name: handyman_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: handymen_expertises_handyman_fk
+                    references: handymen(id)
+                    nullable: false
+              - column:
+                  name: expertise_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: handymen_expertises_expertise_fk
+                    references: expertises(id)
+                    nullable: false

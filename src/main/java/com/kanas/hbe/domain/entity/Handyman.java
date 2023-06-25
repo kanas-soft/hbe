@@ -41,6 +41,13 @@ public class Handyman extends BaseEntity {
     )
     private List<JobAd> assignedJobs = new ArrayList<>();
 
+    @OneToMany(
+            mappedBy = "handyman",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Review> reviews = new ArrayList<>();
+
     @ManyToMany(mappedBy = "handymen")
     private Set<Expertise> expertises = new HashSet<>();
 
