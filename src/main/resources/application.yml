@@ -15,11 +15,11 @@ spring:
       client:
         registration:
           google:
-            client-id: 933264737803-31btvv2jlp21tbtmmfi7651ojohfllto.apps.googleusercontent.com
-            client-secret: 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
+            client-id: { { variables.GOOGLE_OAUTH2_CLIENT_ID } }
+            client-secret: { { secrets.GOOGLE_OAUTH2_SECRET } }
           facebook:
-            client-id: 1446197359529099
-            client-secret: c2ac5a3736e084454dbfb1b6b86a11cd
+            client-id: { { variables.FACEBOOK_OAUTH2_CLIENT_ID } }
+            client-secret: { { secrets.FACEBOOK_OAUTH2_SECRET } }
 
 cloud:
   aws:
