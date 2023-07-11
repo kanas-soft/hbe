@@ -10,6 +10,16 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog/db-changelog.yml
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${ { variables.GOOGLE_OAUTH2_CLIENT_ID } }
+            client-secret: ${ { secrets.GOOGLE_OAUTH2_SECRET } }
+          facebook:
+            client-id: ${ { variables.FACEBOOK_OAUTH2_CLIENT_ID } }
+            client-secret: ${ { secrets.FACEBOOK_OAUTH2_SECRET } }
 
 cloud:
   aws:
